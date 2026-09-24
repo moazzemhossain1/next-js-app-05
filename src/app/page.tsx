@@ -1,9 +1,13 @@
+import Baner from '@/components/sharead/Baner';
 import React from 'react';
+import WorkoutsPage from './Workouts/page';
 
 const HomePage = () => {
   return (
     <div>
-      <h2>Home page.</h2>
+      
+      <WorkoutsPage />
+      <Baner></Baner>
     </div>
   );
 };

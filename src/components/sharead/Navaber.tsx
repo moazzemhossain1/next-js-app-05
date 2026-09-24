@@ -12,8 +12,8 @@ const Navaber = () => {
         <>
             <li>
                 <Link
-                    href="/Workouts"
-                    className={`rounded-2xl ${pathname === "/Workouts"
+                    href="/"
+                    className={`rounded-2xl ${pathname === "/"
                         ? "bg-[#1A2312] text-[#C2F800] font-semibold"
                         : "text-[#9CA3AF] font-medium"
                         }`}
@@ -53,6 +53,7 @@ const Navaber = () => {
 
 
     return (
+        <div>
         <div className=' bg-base-100 shadow-sm'>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
@@ -81,6 +82,9 @@ const Navaber = () => {
                     <a className="text-[#9CA3AF] font-medium">Saved(0)</a>
                 </div>
             </div>
+             
+        </div>
+         <div className="divider -mt-2"></div>
         </div>
     );
 };

@@ -12,7 +12,7 @@ const oswald = Oswald({
 
 const Baner = () => {
   return (
-    <section className="px-4 py-10 lg:py-16">
+    <section className="px-4 py-10 lg:py-16 container mx-auto">
 
       <div
         className="

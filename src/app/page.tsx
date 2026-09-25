@@ -6,8 +6,9 @@ const HomePage = () => {
   return (
     <div>
       
-      <WorkoutsPage />
+      
       <Baner></Baner>
+      <WorkoutsPage />
     </div>
   );
 };

@@ -1,11 +1,17 @@
 "use client";
-import React from 'react';
+import React, { useContext } from 'react';
 import Logo from "@/assets/logo.png"
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
+import { WorkoutContext } from '@/Contaxet/ExcirsContaxt';
 
 const Navaber = () => {
+    const workout=useContext(WorkoutContext)
+    const {count,setCount}=workout;
+
+
+
     const pathname = usePathname();
 
     const Links = (
@@ -78,8 +84,8 @@ const Navaber = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-3">
-                    <a className="text-[#9CA3AF] font-medium">Plan(0)</a>
-                    <a className="text-[#9CA3AF] font-medium">Saved(0)</a>
+                    <a className="text-[#9CA3AF] font-medium">Plan({count})</a>
+                    <a className="text-[#9CA3AF] font-medium">Saved({count})</a>
                 </div>
             </div>
              

@@ -3,6 +3,7 @@ import { ExerciseType } from "@/Types/DataTypes";
 import Image from "next/image";
 
 import { FaBookmark, FaPlus } from "react-icons/fa";
+import PlaneButon from "../ButtonRealeted/PlaneButon";
 
 interface DetileDataCardProps {
     detileData: ExerciseType;
@@ -160,31 +161,9 @@ const DetileDataCard = ({ detileData }: DetileDataCardProps) => {
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
 
-                            <button
-                                className="
-                  btn
-                  bg-[#C2F800]
-                  text-black
-                  border-none
-                  rounded-xl
-                  font-bold
-                "
-                            >
-                                <FaPlus />
-                                Add to today's plan
-                            </button>
+                            <PlaneButon></PlaneButon>
 
-                            <button className="
-                  btn
-                  btn-outline
-                  border-[#323845]
-                  text-white
-                  rounded-xl
-                "
-                            >
-                                <FaBookmark />
-                                Save for later
-                            </button>
+                            
 
                         </div>
 

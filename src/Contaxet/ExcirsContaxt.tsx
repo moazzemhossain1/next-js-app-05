@@ -12,6 +12,8 @@ interface WorkoutContextType {
     >;
     count: number;
     setCount: React.Dispatch<React.SetStateAction<number>>;
+    saveCount:number;
+    setsaveCount:React.Dispatch<React.SetStateAction<number>>;
 }
 export const WorkoutContext = createContext<WorkoutContextType | null>(null);
 
@@ -21,6 +23,7 @@ interface WorkoutProviderProps {
 
 const ExcirsContaxt = ({ children }: WorkoutProviderProps) => {
     const [count, setCount] = useState<number>(0)
+    const[saveCount,setsaveCount]=useState<number>(0)
     const [planExercises,setPlanExercises]=useState<ExerciseType[]>([])
     const [savedExercises,setSavedExercises]=useState<ExerciseType[]>([])
 
@@ -32,7 +35,9 @@ const ExcirsContaxt = ({ children }: WorkoutProviderProps) => {
                 planExercises,
                 setPlanExercises,
                 savedExercises,
-                setSavedExercises
+                setSavedExercises,
+                saveCount,
+                setsaveCount
 
             }}
         >

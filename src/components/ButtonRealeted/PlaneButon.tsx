@@ -4,11 +4,23 @@ import React, { useContext, useState } from 'react';
 import { FaBookmark, FaPlus } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
-const PlaneButon = () => {
+const PlaneButon = ({ detileData }) => {
     const [isAdded, setIsAdded] = useState<boolean>(false)
-    const[savIsAdd,setSaveIsAdd]=useState<boolean>(false)
+    const [savIsAdd, setSaveIsAdd] = useState<boolean>(false)
     const workutPoint = useContext(WorkoutContext);
-    const { count, setCount, saveCount, setsaveCount } = workutPoint;
+    const { count,
+        setCount,
+        saveCount,
+        setsaveCount,
+        totalDuration,
+        setTotalDuration,
+        toSaveDuration,
+        setSaveDuration,
+        PlaCalories,
+        setPlaCalories,
+        SaveCalories,
+        setSaveCalories
+    } = workutPoint;
     const handleIncrajeplane = () => {
         if (isAdded) {
             toast.warning(
@@ -19,6 +31,10 @@ const PlaneButon = () => {
         }
         const Incraje = count + 1;
         setCount(Incraje)
+        const Duration = totalDuration + detileData.duration;
+        setTotalDuration(Duration)
+        const IncrjeColory=PlaCalories+detileData.caloriesBurned;
+        setPlaCalories(IncrjeColory)
         setIsAdded(true)
         toast.success("🎉 Exercise added to your plan!");
 
@@ -34,6 +50,11 @@ const PlaneButon = () => {
         }
         const SaveIncarje = saveCount + 1;
         setsaveCount(SaveIncarje)
+        const SaveIncra=toSaveDuration+detileData.duration;
+        setSaveDuration(SaveIncra);
+        const SaveCaloriesIn=SaveCalories+detileData.caloriesBurned;
+        setSaveCalories(SaveCaloriesIn)
+
         setSaveIsAdd(true)
 
         toast.success("🎉 Exercise added to your Saved!")

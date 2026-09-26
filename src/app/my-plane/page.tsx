@@ -9,6 +9,8 @@ import SaveCard from "@/components/MyPlaneRealted/SaveCard";
 const MyplanePage = () => {
     const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
 
+    const [sortBy, setSortBy] = useState("");
+
     return (
         <div className="container mx-auto">
 
@@ -20,29 +22,26 @@ const MyplanePage = () => {
                 Cap of five lifts for today. Finish them, then load more.
             </p>
 
-
-            {/* CONTENT */}
-
+            {/* Stats */}
             {activeTab === "today" && (
                 <ExcriesCard />
             )}
 
             {activeTab === "saved" && (
-                <SaveExriesCard></SaveExriesCard>
-
+                <SaveExriesCard />
             )}
 
+            {/* Tabs + Sort */}
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mt-8 w-full">
 
-
-            <div className="mt-8 flex ">
-
-                <div className="tabs tabs-box">
+                {/* Tabs */}
+                <div className="tabs tabs-box w-fit">
 
                     <button
                         onClick={() => setActiveTab("today")}
                         className={`tab ${activeTab === "today"
-                            ? "tab-active"
-                            : ""
+                                ? "tab-active"
+                                : ""
                             }`}
                     >
                         Today's Plan
@@ -51,8 +50,8 @@ const MyplanePage = () => {
                     <button
                         onClick={() => setActiveTab("saved")}
                         className={`tab ${activeTab === "saved"
-                            ? "tab-active"
-                            : ""
+                                ? "tab-active"
+                                : ""
                             }`}
                     >
                         Saved
@@ -60,13 +59,46 @@ const MyplanePage = () => {
 
                 </div>
 
+                {/* Sort */}
+                <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="bg-[#0B1220] border border-[#1E293B]
+                    text-white rounded-xl px-4 py-3
+                    outline-none cursor-pointer
+                    w-full sm:w-auto"
+                >
+                    <option value="">
+                        Sort By
+                    </option>
+
+                    <option value="duration">
+                        Duration
+                    </option>
+
+                    <option value="calories">
+                        Calories
+                    </option>
+
+                    <option value="rating">
+                        Rating
+                    </option>
+                </select>
+
             </div>
-            {activeTab === "today" &&(
-                <PlaneExcriesCard></PlaneExcriesCard>
+
+            {/* Today's Plan */}
+            {activeTab === "today" && (
+                <PlaneExcriesCard
+                    sortBy={sortBy}
+                />
             )}
 
-            {activeTab === "saved" &&(
-                <SaveCard></SaveCard>
+            {/* Saved */}
+            {activeTab === "saved" && (
+                <SaveCard
+                    sortBy={sortBy}
+                />
             )}
 
         </div>

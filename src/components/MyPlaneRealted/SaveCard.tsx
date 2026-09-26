@@ -11,9 +11,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
 
+interface SaveExcriesCardProps {
+    sortBy: string;
+}
 
-
-const SaveCard = () => {
+const SaveCard = ({ sortBy }: SaveExcriesCardProps) => {
     const SaveworkoutContext = useContext(WorkoutContext);
 
     if (!SaveworkoutContext) {
@@ -58,6 +60,23 @@ const SaveCard = () => {
 
     }
 
+    const sortedExercis = [...savedExercises].sort((a, b) => {
+        if (sortBy === "duration") {
+            return a.duration - b.duration;
+        }
+
+        if (sortBy === "calories") {
+            return a.caloriesBurned - b.caloriesBurned;
+        }
+
+        if (sortBy === "rating") {
+            return a.rating - b.rating;
+        }
+
+        return 0;
+    });
+
+
 
     // Empty State
     if (savedExercises.length === 0) {
@@ -86,7 +105,7 @@ const SaveCard = () => {
 
     return (
         <div className="space-y-4 mt-7">
-            {savedExercises.map((exercis: ExerciseType) => (
+            {sortedExercis .map((exercis: ExerciseType) => (
                 <div
                     key={exercis.id}
                     className="bg-[#0B1220] border border-[#1E293B] rounded-2xl p-4 flex items-center justify-between"

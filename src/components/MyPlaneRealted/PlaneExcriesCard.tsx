@@ -10,8 +10,11 @@ import { FaDumbbell } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
+interface PlaneExcriesCardProps {
+    sortBy: string;
+}
 
-const PlaneExcriesCard = () => {
+const PlaneExcriesCard = ({ sortBy }: PlaneExcriesCardProps) => {
     const workoutContext = useContext(WorkoutContext);
 
 
@@ -45,9 +48,28 @@ const PlaneExcriesCard = () => {
             PlaCalories - deletedExercise.caloriesBurned
         );
         setPlanExercises(updatedExcrisePlane)
+
+
         toast.success("🗑️ Exercise removed from your plan!");
 
     }
+
+
+    const sortedExercises = [...planExercises].sort((a, b) => {
+        if (sortBy === "duration") {
+            return a.duration - b.duration;
+        }
+
+        if (sortBy === "calories") {
+            return a.caloriesBurned - b.caloriesBurned;
+        }
+
+        if (sortBy === "rating") {
+            return a.rating - b.rating;
+        }
+
+        return 0;
+    });
 
 
     // Empty State
@@ -77,7 +99,7 @@ const PlaneExcriesCard = () => {
 
     return (
         <div className="space-y-4 mt-7">
-            {planExercises.map((exercise: ExerciseType) => (
+            {sortedExercises.map((exercise: ExerciseType) => (
                 <div
                     key={exercise.id}
                     className="bg-[#0B1220] border border-[#1E293B] rounded-2xl p-4 flex items-center justify-between"

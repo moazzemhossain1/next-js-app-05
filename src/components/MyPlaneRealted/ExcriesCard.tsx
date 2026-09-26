@@ -6,10 +6,14 @@ import { FiClock } from "react-icons/fi";
 import { FiHeart } from "react-icons/fi";
 
 const ExcriesCard = () => {
-    const PlaneExcrise=useContext(WorkoutContext)
-    const{count,setCount,totalDuration,setTotalDuration,PlaCalories}=PlaneExcrise;
-    const handlePlaneIncrije=()=>{
-        const PlanIn=count+1;
+    const PlaneExcrise = useContext(WorkoutContext)
+    if (!PlaneExcrise) {
+        return null;
+    }
+
+    const { count, setCount, totalDuration, setTotalDuration, PlaCalories } = PlaneExcrise;
+    const handlePlaneIncrije = () => {
+        const PlanIn = count + 1;
         setCount(PlanIn)
 
     }
@@ -34,8 +38,8 @@ const ExcriesCard = () => {
                             </p>
 
                             <h2
-                            onClick={()=> handlePlaneIncrije()}
-                             className="mt-1 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white">
+                                onClick={() => handlePlaneIncrije()}
+                                className="mt-1 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white">
                                 {count}
                             </h2>
 

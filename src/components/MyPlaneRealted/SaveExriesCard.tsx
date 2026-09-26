@@ -6,10 +6,13 @@ import { FiClock } from "react-icons/fi";
 import { FiHeart } from "react-icons/fi";
 
 const ExcriesCard = () => {
-    const ExciresCount=useContext(WorkoutContext);
-    const {saveCount,setsaveCount,toSaveDuration,SaveCalories}=ExciresCount;
-    const hadleSaveIncrijeExcrise=()=>{
-        const saveIn=saveCount+1;
+    const ExciresCount = useContext(WorkoutContext);
+    if (!ExciresCount) {
+        return null;
+    }
+    const { saveCount, setsaveCount, toSaveDuration, SaveCalories } = ExciresCount;
+    const hadleSaveIncrijeExcrise = () => {
+        const saveIn = saveCount + 1;
         setsaveCount(saveIn)
 
 
@@ -33,8 +36,8 @@ const ExcriesCard = () => {
                             </p>
 
                             <h2
-                            onClick={()=>hadleSaveIncrijeExcrise()}
-                             className="mt-1 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white">
+                                onClick={() => hadleSaveIncrijeExcrise()}
+                                className="mt-1 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white">
                                 {saveCount}
                             </h2>
 

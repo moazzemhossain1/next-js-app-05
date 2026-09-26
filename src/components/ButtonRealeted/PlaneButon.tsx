@@ -4,8 +4,11 @@ import { ExerciseType } from '@/Types/DataTypes';
 import React, { useContext, useState } from 'react';
 import { FaBookmark, FaPlus } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+interface PlaneButonProps {
+  detileData: ExerciseType;
+}
 
-const PlaneButon = ({ detileData }) => {
+const PlaneButon = ({ detileData }:PlaneButonProps) => {
    
     const workutPoint = useContext(WorkoutContext);
     if (!workutPoint) {

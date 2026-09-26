@@ -1,36 +1,179 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️ FitLog – Workout Library
 
-## Getting Started
+FitLog is a modern fitness and workout tracking web application built with Next.js. Users can explore workouts, view exercise details, create a daily workout plan, save exercises for later, and track workout statistics such as total exercises, duration, and calories burned.
 
-First, run the development server:
+## 🚀 Live Features
+
+* 📚 Browse a collection of workout exercises
+* 🔍 View detailed information for each exercise
+* ➕ Add exercises to Today's Plan
+* ❤️ Save exercises for later
+* 🗑️ Remove exercises from plans or saved list
+* 📊 Track:
+
+  * Total Exercises
+  * Total Workout Duration
+  * Total Calories Burned
+* 🔄 Sort exercises by:
+
+  * Duration
+  * Calories Burned
+  * Rating
+* 📱 Fully Responsive Design
+* 🔔 Interactive Toast Notifications
+* ⚡ Fast performance with Next.js
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+* Next.js 16
+* React 19
+* TypeScript
+* Tailwind CSS
+* DaisyUI
+
+### Libraries
+
+* React Icons
+* React Toastify
+
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+│
+├── app/
+│   ├── Workouts/
+│   ├── MyPlan/
+│   └── page.tsx
+│
+├── components/
+│   ├── Navbar
+│   ├── Footer
+│   ├── ExerciseCard
+│   ├── PlaneExcriesCard
+│   ├── SaveCard
+│   └── StatsCards
+│
+├── Contaxet/
+│   └── ExcirsContaxt.tsx
+│
+├── Types/
+│   └── DataTypes.ts
+│
+└── Data/
+```
+
+---
+
+## 🎯 Main Functionalities
+
+### Today's Plan
+
+Users can add exercises to their daily workout plan and monitor:
+
+* Number of exercises
+* Total workout duration
+* Total calories burned
+
+### Saved Exercises
+
+Users can save exercises for later and manage them separately.
+
+### Sorting
+
+Exercises can be sorted dynamically based on:
+
+* Duration
+* Calories Burned
+* Rating
+
+---
+
+## 📸 Pages
+
+### Home Page
+
+Introduction to the FitLog platform.
+
+### Workouts Page
+
+Displays all available exercises.
+
+### Exercise Details Page
+
+Shows complete workout information including:
+
+* Muscle Groups
+* Equipment
+* Difficulty
+* Duration
+* Calories Burned
+* Instructions
+
+### My Plan Page
+
+Manage today's workout plan and saved exercises.
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Navigate into the project:
+
+```bash
+cd fitlog
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌟 Future Improvements
 
-To learn more about Next.js, take a look at the following resources:
+* User Authentication
+* Workout Progress Tracking
+* Dark / Light Theme Toggle
+* Search & Filter System
+* Exercise Categories
+* User Profiles
+* Workout History
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Author
 
-## Deploy on Vercel
+Developed by **Moazzem Hossain**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📜 License
+
+This project is created for learning and educational purposes.

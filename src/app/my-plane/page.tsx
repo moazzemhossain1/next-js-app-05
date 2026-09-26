@@ -3,6 +3,8 @@
 import { useState } from "react";
 import ExcriesCard from "@/components/MyPlaneRealted/ExcriesCard";
 import SaveExriesCard from "@/components/MyPlaneRealted/SaveExriesCard";
+import PlaneExcriesCard from "@/components/MyPlaneRealted/PlaneExcriesCard";
+import SaveCard from "@/components/MyPlaneRealted/SaveCard";
 
 const MyplanePage = () => {
     const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
@@ -59,6 +61,13 @@ const MyplanePage = () => {
                 </div>
 
             </div>
+            {activeTab === "today" &&(
+                <PlaneExcriesCard></PlaneExcriesCard>
+            )}
+
+            {activeTab === "saved" &&(
+                <SaveCard></SaveCard>
+            )}
 
         </div>
     );

@@ -1,13 +1,17 @@
 "use client";
 import { WorkoutContext } from '@/Contaxet/ExcirsContaxt';
+import { ExerciseType } from '@/Types/DataTypes';
 import React, { useContext, useState } from 'react';
 import { FaBookmark, FaPlus } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const PlaneButon = ({ detileData }) => {
-    const [isAdded, setIsAdded] = useState<boolean>(false)
-    const [savIsAdd, setSaveIsAdd] = useState<boolean>(false)
+   
     const workutPoint = useContext(WorkoutContext);
+    if (!workutPoint) {
+        return null;
+    }
+
     const { count,
         setCount,
         saveCount,
@@ -19,47 +23,74 @@ const PlaneButon = ({ detileData }) => {
         PlaCalories,
         setPlaCalories,
         SaveCalories,
-        setSaveCalories
+        setSaveCalories,
+        planExercises,
+        setPlanExercises,
+        savedExercises,
+        setSavedExercises,
     } = workutPoint;
     const handleIncrajeplane = () => {
-        if (isAdded) {
+        const alreadyExists = planExercises.find(
+            (item: ExerciseType) => item.id === detileData.id
+        );
+
+        if (alreadyExists) {
             toast.warning(
                 "⚠️ This exercise is already in your plan!"
             );
             return;
-
         }
-        const Incraje = count + 1;
-        setCount(Incraje)
-        const Duration = totalDuration + detileData.duration;
-        setTotalDuration(Duration)
-        const IncrjeColory=PlaCalories+detileData.caloriesBurned;
-        setPlaCalories(IncrjeColory)
-        setIsAdded(true)
-        toast.success("🎉 Exercise added to your plan!");
 
-    }
+        setCount(count + 1);
+        setTotalDuration(
+            totalDuration + detileData.duration
+        );
+        setPlaCalories(
+            PlaCalories + detileData.caloriesBurned
+        );
+
+        setPlanExercises([
+            ...planExercises,
+            detileData
+        ]);
+
+        toast.success(
+            "🎉 Exercise added to your plan!"
+        );
+    };
+
     const handleSaveIncrije = () => {
-        if (savIsAdd) {
+
+        const alreadySaved = savedExercises.find(
+            (ite: ExerciseType) => ite.id === detileData.id
+        );
+
+        if (alreadySaved) {
             toast.warning(
-                "⚠️ This exercise is already in your Saved!"
+                "⚠️ This exercise is already in Saved!"
             );
             return;
-
-
         }
-        const SaveIncarje = saveCount + 1;
-        setsaveCount(SaveIncarje)
-        const SaveIncra=toSaveDuration+detileData.duration;
-        setSaveDuration(SaveIncra);
-        const SaveCaloriesIn=SaveCalories+detileData.caloriesBurned;
-        setSaveCalories(SaveCaloriesIn)
 
-        setSaveIsAdd(true)
+        setsaveCount(saveCount + 1);
 
-        toast.success("🎉 Exercise added to your Saved!")
+        setSaveDuration(
+            toSaveDuration + detileData.duration
+        );
 
-    }
+        setSaveCalories(
+            SaveCalories + detileData.caloriesBurned
+        );
+
+        setSavedExercises([
+            ...savedExercises,
+            detileData
+        ]);
+
+        toast.success(
+            "🎉 Exercise added to your Saved!"
+        );
+    };
 
     return (
         <div className='flex gap-3'>
@@ -79,6 +110,8 @@ const PlaneButon = ({ detileData }) => {
             </button>
             <button
                 onClick={() => handleSaveIncrije()}
+
+
                 className="
             
                   btn

@@ -7,9 +7,8 @@ interface WorkoutContextType {
     setPlanExercises: React.Dispatch<React.SetStateAction<ExerciseType[]>>;
 
     savedExercises: ExerciseType[];
-    setSavedExercises: React.Dispatch<
-        React.SetStateAction<ExerciseType[]>
-    >;
+    setSavedExercises: React.Dispatch<React.SetStateAction<ExerciseType[]>>;
+   
     count: number;
     setCount: React.Dispatch<React.SetStateAction<number>>;
     saveCount:number;
@@ -39,6 +38,7 @@ const ExcirsContaxt = ({ children }: WorkoutProviderProps) => {
     const[SaveCalories,setSaveCalories]=useState<number>(0)
     const [planExercises,setPlanExercises]=useState<ExerciseType[]>([])
     const [savedExercises,setSavedExercises]=useState<ExerciseType[]>([])
+   
 
     return (
         <WorkoutContext.Provider
